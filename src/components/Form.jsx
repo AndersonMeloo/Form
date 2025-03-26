@@ -8,8 +8,8 @@ function Form() {
         name: '',
         sobrenome: '',
         email: '',
-        date: '',
-        password: ''
+        dataNascimento: '',
+        senha: ''
     })
 
     // Função chamada sempre que o Valor de um Campo do Formulário for mudada
@@ -29,7 +29,7 @@ function Form() {
         e.preventDefault()
 
         // Enviando os dados para o Back-End 
-        fetch('meu-endpoint.php', { // Requisição da endpoint
+        fetch('register-user.php', { // Requisição da endpoint
             method: 'POST', // Método HTTP usado (POST para Enviar os Dados)
             headers: { // Define o tipo de conteúdo que será enviado
                 'Content-Type': 'application/json', // Conteúdo em Formato JSON
@@ -78,20 +78,20 @@ function Form() {
                     onChange={handleChange}
                 />
 
-                <label htmlFor="date">Data de Nascimento</label>
+                <label htmlFor="dataNascimento">Data de Nascimento</label>
                 <input type="date"
-                    name="date"
-                    id="date"
-                    value={formData.date}
+                    name="dataNascimento"
+                    id="dataNascimento"
+                    value={formData.dataNascimento}
                     onChange={handleChange}
                 />
 
-                <label htmlFor="password">Senha</label>
+                <label htmlFor="senha">Senha</label>
                 <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    value={formData.password}
+                    type="senha"
+                    name="senha"
+                    id="senha"
+                    value={formData.senha}
                     onChange={handleChange}
                 />
 
