@@ -29,14 +29,16 @@ function Form() {
         e.preventDefault()
 
         // Enviando os dados para o Back-End 
-        fetch('meu-endpoint.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
+        fetch('meu-endpoint.php', { // Requisição da endpoint
+            method: 'POST', // Método HTTP usado (POST para Enviar os Dados)
+            headers: { // Define o tipo de conteúdo que será enviado
+                'Content-Type': 'application/json', // Conteúdo em Formato JSON
             },
-            body: JSON.stringify(formData),
+            body: JSON.stringify(formData), // Converte o objeto 'formData' em String JSON e envia para a Requisição
         })
-            .then(response => response.json()) // Tratar a resposta do servidor
+            .then(response => response.json())  // Quando resposta chega, converte para JSON
+            
+            // Tratar a resposta do servidor
             .then(data => {
                 console.log('Cadastro enviado com sucesso', data);
             })
