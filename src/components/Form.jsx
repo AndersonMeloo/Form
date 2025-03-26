@@ -29,7 +29,7 @@ function Form() {
         e.preventDefault()
 
         // Enviando os dados para o Back-End 
-        fetch('http://localhost/Form-in-React-PHP-MySQL/register-user.php', { // Requisição da endpoint
+        fetch('register-user.php', { // Requisição da endpoint
             method: 'POST', // Método HTTP usado (POST para Enviar os Dados)
             headers: { // Define o tipo de conteúdo que será enviado
                 'Content-Type': 'application/json', // Conteúdo em Formato JSON
