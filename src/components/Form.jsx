@@ -27,6 +27,22 @@ function Form() {
     const handleSubmit = (e) => {
         // Evita Carregamento da Página
         e.preventDefault()
+
+        // Enviando os dados para o Back-End 
+        fetch('meu-endpoint.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        })
+            .then(response => response.json()) // Tratar a resposta do servidor
+            .then(data => {
+                console.log('Cadastro enviado com sucesso', data);
+            })
+            .catch((e) => {
+                console.error('Erro ao enviar cadastro', e);
+            })
     }
 
     return (
@@ -42,7 +58,7 @@ function Form() {
                     onChange={handleChange} // Atualiza o useState com o novo valor sempre que o campo mudar
                 />
 
-                <label htmlFor="sobrenome"></label>
+                <label htmlFor="sobrenome">Sobrenome</label>
                 <input
                     type="text"
                     name="sobrenome"
